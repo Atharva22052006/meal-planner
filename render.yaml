@@ -2,10 +2,10 @@ services:
   - type: web
     name: meal-planner
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install .
     startCommand: gunicorn app:app
     envVars:
-      - key: FLASK_SECRET_KEY
-        generateValue: true
       - key: GEMINI_API_KEY
-        sync: false 
+        sync: false
+      - key: FLASK_SECRET_KEY
+        generateValue: true 
