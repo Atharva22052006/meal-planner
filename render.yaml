@@ -2,10 +2,7 @@ services:
   - type: web
     name: meal-planner
     env: python
-    buildCommand: |
-      python -m pip install --upgrade pip
-      pip install setuptools wheel
-      pip install .
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
       - key: GEMINI_API_KEY
